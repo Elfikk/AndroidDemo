@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Demo</string>
+
+    <string name="snackbar_text">Entered Text:</string>
+    <string name="submit_button">Submit</string>
+    <string name="text_label_1">Data Entry</string>
+    <string name="text_label_2">View Data</string>
+    <string name="text_label_3">Data Plots</string>
+    <string name="hint">Enter a numba</string>
+</resources>

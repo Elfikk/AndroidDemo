@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/page_1"
+        android:enabled="true"
+        android:title="@string/text_label_1"
+        android:icon="@drawable/icon_text_entry"/>
+    <item
+        android:id="@+id/page_2"
+        android:enabled="true"
+        android:title="@string/text_label_2"
+        android:icon="@drawable/icon_data_view"/>
+    <item
+        android:id="@+id/page_3"
+        android:enabled="true"
+        android:title="@string/text_label_3"
+        android:icon="@drawable/icon_data_plot"/>
+</menu>
