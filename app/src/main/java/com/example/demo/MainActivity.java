@@ -2,6 +2,7 @@ package com.example.demo;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -25,50 +26,32 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Cant getContext() ? Seems to be an AppCompatActivity thing.
-        Context context = MainActivity.this;
-        DBHelper Helper = new DBHelper(context);
-        SQLiteDatabase DB = Helper.getWritableDatabase();
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
 
-        // View RootView = findViewById(android.R.id.content).getRootView();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new DataEntry()).commit();
+        };
 
-        Button ButtonSubmit = (Button) findViewById(R.id.button_submit);
-        EditText TextEditor = (EditText) findViewById(R.id.text_editor);
-
-        //String snackbar = getResources().getString(R.string.mystring);
-        // Can pass any View i.e the Button and the Snackbar.make() method figures out the ViewGroup.
-        Snackbar ConfirmMessage = Snackbar.make(ButtonSubmit, R.string.snackbar_text, BaseTransientBottomBar.LENGTH_LONG);
-
-        ButtonSubmit.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View root_view) {
-                String InputText = TextEditor.getText().toString();
-                String DefaultText = getString(R.string.snackbar_text);
-                String OutputText = String.join(" ", DefaultText, InputText);
-
-                Integer inputNumber = Integer.parseInt(InputText);
-                System.out.println(InputText);
-                System.out.println(inputNumber);
-                if (inputNumber == null) {
-                    ConfirmMessage.setText("Invalid Input");
-                    ConfirmMessage.show();
-                } else {
-                    ContentValues values = new ContentValues();
-                    values.put(DBContract.ExampleColumns.COLUMN_NAME_TITLE, inputNumber);
-                    DB.insert(DBContract.ExampleColumns.TABLE_NAME, null, values);
-                    ConfirmMessage.setText(OutputText);
-                    ConfirmMessage.show();
-                    TextEditor.setText("");
-                }
-
-                //ConfirmMessage.setText(OutputText);
-                //ConfirmMessage.show();
-                //TextEditor.setText("");
-
-            }
-        });
-    }
-
-
-
+    private final BottomNavigationView.OnNavigationItemSelectedListener navListener = item -> {
+        // By using switch we can easily get
+        // the selected fragment
+        // by using there id.
+        Fragment selectedFragment = null;
+        int itemId = item.getItemId();
+        if (itemId == R.id.data_entry) {
+            selectedFragment = new DataEntry();
+        } else if (itemId == R.id.data_view) {
+            selectedFragment = new DataView();
+        } else if (itemId == R.id.data_plot) {
+            ;
+            //selectedFragment = new ProfileFragment();
+        }
+        // It will help to replace the
+        // one fragment to other.
+        if (selectedFragment != null) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, selectedFragment).commit();
+        }
+        return true;
+    };
 
 }

@@ -7,4 +7,8 @@
     <string name="text_label_2">View Data</string>
     <string name="text_label_3">Data Plots</string>
     <string name="hint">Enter a numba</string>
+    <string name="list_image_desc">Icon</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>
