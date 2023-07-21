@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
         } else if (itemId == R.id.data_view) {
             selectedFragment = new DataView();
         } else if (itemId == R.id.data_plot) {
-            ;
+            selectedFragment = new DataPlot();
             //selectedFragment = new ProfileFragment();
         }
         // It will help to replace the

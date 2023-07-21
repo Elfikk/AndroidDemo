@@ -10,5 +10,12 @@
     <string name="list_image_desc">Icon</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="x_axis">x axis</string>
+    <string name="y_axis">y axis</string>
+    <string name="plot_button">Plot</string>
+    <string name="plot_image">plot_image</string>
+
+    <string name="id">_id</string>
+    <string name="number">numba</string>
 
 </resources>

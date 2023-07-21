@@ -65,7 +65,7 @@ public class DataView extends Fragment {
         DB = Helper.getReadableDatabase();
 
         numbas = initData(Helper, DB, "0", "10");
-        initialiseRecycler(numbas);
+        initialiseRecycler();
         initScrollListener();
     }
 
@@ -99,7 +99,7 @@ public class DataView extends Fragment {
         return numbas;
     }
 
-    public void initialiseRecycler(List<String> numbas) {
+    public void initialiseRecycler() {
         // set up the RecyclerView
         recyclerView = getView().findViewById(R.id.rv_list);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
@@ -175,11 +175,6 @@ public class DataView extends Fragment {
                 int nextLimit = currentSize + 10;
 
                 getData(Integer.toString(currentSize), Integer.toString(nextLimit));
-
-                //while (currentSize - 1 < nextLimit) {
-                //    rowsArrayList.add("Item " + currentSize);
-                //    currentSize++;
-                //}
 
                 adapter.notifyItemRangeInserted(scrollPosition, numbas.size());
                 //adapter.notifyDataSetChanged();

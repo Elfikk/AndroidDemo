@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="column_array">
+        <item>@string/id</item>
+        <item>@string/number</item>
+    </string-array>
+</resources>
